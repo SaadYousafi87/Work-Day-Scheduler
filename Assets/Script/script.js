@@ -33,15 +33,22 @@ function displayMessage(){
     }
 }
 
+function displayConfirm(){
+    $("#add-message").css("display", "block");
+    $("#add-message").fadeOut(3000);
+}
+
 colorDisplay();
 
 document.addEventListener("click", function(event){
     var child = event.target;
+    console.log(child);
     for(var i = 0; i < hourArray.length; i++){
         if(child.matches("#"+hourArray[i])){
             var $text = $("#"+timeArray[i]).val();
             if($text.length != 0){
                 localStorage.setItem(timeArray[i], $text);
+                displayConfirm();
             }
         }
     }
