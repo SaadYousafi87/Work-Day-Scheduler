@@ -5,8 +5,12 @@ var $pEl = $("#currentDay");
 var timeArray = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
 var hourArray = ["hour-9", "hour-10", "hour-11", "hour-12", "hour-1", "hour-2", "hour-3", "hour-4", "hour-5"];
 
+// displaying current day and month
 $pEl.text(currentDate);
 
+/**
+ * This function will set the color according to time block.
+ */
 function colorDisplay(){
     var index = 0;
     for(var i = 0; i < timeArray.length; i++){
@@ -26,6 +30,9 @@ function colorDisplay(){
     }
 }
 
+/**
+ * This function is to display message in time blocks.
+ */
 function displayMessage(){
     for(var i = 0; i < timeArray.length; i++){
         var value = localStorage.getItem(timeArray[i]);
@@ -33,13 +40,18 @@ function displayMessage(){
     }
 }
 
+/**
+ * This function will display comfirmation message and make it fade out with in 5 seconds.
+ */
 function displayConfirm(){
     $("#add-message").css("display", "block");
     $("#add-message").fadeOut(3000);
 }
 
+// call to color display function.
 colorDisplay();
 
+// event listener function to handle the click events.
 document.addEventListener("click", function(event){
     var child = event.target;
     console.log(child);
@@ -54,4 +66,5 @@ document.addEventListener("click", function(event){
     }
 });
 
+// call to display message fuction.
 displayMessage();
