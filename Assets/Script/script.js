@@ -14,34 +14,40 @@ $pEl.text(currentDate);
 function colorDisplay(){
     var index = -1;
     for(var i = 0; i < timeArray.length; i++){
-        if(currentTime === timeArray[i]){
+        if(currentTime == timeArray[i]){
             index = i;
+            break;
         }else{
             index = -1;
         }
     }
 
-    if(index >= 0){
+    if(currentTime == "12AM"){
+        for(var i = 0; i < timeArray.length; i++){
+            $("#"+timeArray[i]).css("background", "#00FF00");
+        }
+    }else if(index >= 0){
         // gray color
         for (var i = 0; i < index; i++){
-            $("#"+timeArray[i]).css("background-color", "#D3D3D3");
+            $("#"+timeArray[i]).css("background", "#D3D3D3");
         }
 
         // red color
         for (var i = 0; i < timeArray.length; i++){
             var time = timeArray[i];
             if(time == currentTime){
-                $("#"+timeArray[i]).css("background-color", "#FF0000");
+                $("#"+timeArray[i]).css("background", "#FF0000");
             }
         }
 
         // green color
         for (var i = index + 1; i < timeArray.length; i++){
-            $("#"+timeArray[i]).css("background-color", "#00FF00");
+            $("#"+timeArray[i]).css("background", "#00FF00");
         }
     }else if(index == -1) {
+        // gray color
         for(var i = 0; i < timeArray.length; i++){
-            $("#"+timeArray[i]).css("background-color", "#D3D3D3");
+            $("#"+timeArray[i]).css("background", "#D3D3D3");
         }
     }
 }
