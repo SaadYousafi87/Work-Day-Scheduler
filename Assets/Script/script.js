@@ -24,7 +24,9 @@ function colorDisplay(){
 
     if(currentTime == "12AM"){
         for(var i = 0; i < timeArray.length; i++){
+            // green color
             $("#"+timeArray[i]).css("background", "#00FF00");
+            localStorage.setItem(timeArray[i], "");
         }
     }else if(index >= 0){
         // gray color
